@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en" dir="LEF">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أقسام صيدليتك</title>
+
+    <link rel="stylesheet" href="style.css">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <!-- أيقونات Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap');
+
+        :root {
+            --primary-orange: #ed6007;
+            --secondary-dark: #030f1c;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: linear-gradient(135deg, #fff7f2 0%, #ffffff 100%);
+            color: var(--secondary-dark);
+            min-height: 100vh;
+        }
+
+        /* تنسيق كروت الأقسام الرئيسية */
+        .cat-badge-card {
+            background: white;
+            border: 2px solid transparent;
+            border-radius: 15px;
+            padding: 20px 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .cat-badge-card:hover, .cat-badge-card.active {
+            transform: translateY(-5px);
+            border-color: var(--primary-orange);
+            box-shadow: 0 8px 20px rgba(237, 96, 7, 0.15);
+        }
+
+        .cat-badge-card .icon-box {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #fff4ee;
+            color: var(--primary-orange);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 12px;
+            font-size: 1.6rem;
+            transition: all 0.3s ease;
+        }
+
+        .cat-badge-card.active .icon-box {
+            background-color: var(--primary-orange);
+            color: white;
+        }
+
+        /* تنسيق كروت المنتجات */
+        .product-card {
+            background: white;
+            border: none;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.04);
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(237, 96, 7, 0.1);
+        }
+
+        .product-img {
+            height: 200px;
+            object-fit: contain;
+            width: 100%;
+            background-color: #fff;
+            padding: 15px;
+        }
+
+        /* ألوان مخصصة للبادجز والأزرار بالبرتقالي والأبيض والأسود */
+        .custom-badge {
+            background-color: #fff4ee !important;
+            color: var(--primary-orange) !important;
+        }
+
+        .custom-btn {
+            background-color: var(--primary-orange) !important;
+            border-color: var(--primary-orange) !important;
+            color: white !important;
+        }
+
+        .custom-btn:hover {
+            background-color: #d25205 !important;
+            border-color: #d25205 !important;
+        }
+
+        /* أنيميشن الظهور السلس */
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container py-5">
+    
+    <!-- العنوان الرئيسي -->
+    <div class="text-center mb-5">
+        <h1 class="fw-bold" style="color: var(--secondary-dark);">دليل أقسام الصيدلية</h1>
+        <p class="text-muted">اضغطي على أي قسم بالأسفل لعرض كافة المنتجات التابعة له فوراً</p>
+    </div>
+
+    <!-- أولاً: الأقسام الرئيسية + زر الكل (مرتبة من اليمين لليسار باللغة العربية) -->
+    <div class="row g-3 justify-content-center mb-5">
+        <!-- كل المنتجات -->
+        <div class="col-6 col-sm-3">
+            <div class="cat-badge-card active" data-filter="all">
+                <div class="icon-box"><i class="bi bi-grid-fill"></i></div>
+                <h5 class="fw-bold fs-6 mb-0">جميع المنتجات</h5>
+            </div>
+        </div>
+        <!-- 1. الأدوية والمسكنات -->
+        <div class="col-6 col-sm-3">
+            <div class="cat-badge-card" data-filter="medicines">
+                <div class="icon-box"><i class="bi bi-capsule"></i></div>
+                <h5 class="fw-bold fs-6 mb-0">الأدوية والمسكنات</h5>
+            </div>
+        </div>
+        <!-- 2. العناية بالبشرة -->
+        <div class="col-6 col-sm-3">
+            <div class="cat-badge-card" data-filter="skincare">
+                <div class="icon-box"><i class="bi bi-droplet-half"></i></div>
+                <h5 class="fw-bold fs-6 mb-0">العناية بالبشرة</h5>
+            </div>
+        </div>
+        <!-- 3. الفيتامينات والمكملات (أيقونة واضحة ومميزة للزجاجة والكبسولات) -->
+        <div class="col-6 col-sm-3">
+            <div class="cat-badge-card" data-filter="vitamins">
+                <div class="icon-box"><i class="bi bi-prescription2"></i></div>
+                <h5 class="fw-bold fs-6 mb-0">فيتامينات ومكملات</h5>
+            </div>
+        </div>
+    </div>
+
+    <hr class="my-4 text-muted">
+
+    <!-- ثانياً: شبكة المنتجات -->
+    <h3 class="fw-bold mb-4" id="section-title" style="color: var(--secondary-dark);">المنتجات المتاحة</h3>
+    <div class="row g-4" id="products-grid">
+        
+        <!-- ================= [1] منتجات قسم الأدوية والمسكنات (medicines) ================= -->
+        <div class="col-md-3 col-sm-6 product-item" data-category="medicines">
+            <div class="card h-100 product-card">
+                <img src="https://images.unsplash.com/photo-1584017911766-d451b3d0e843?auto=format&fit=crop&w=400&q=80" class="product-img" alt="بنادول">
+                <div class="card-body d-flex flex-column">
+                    <span class="badge custom-badge mb-2 align-self-start">أدوية</span>
+                    <h5 class="card-title fw-bold fs-6">بنادول إكسترا (Panadol)</h5>
+                    <p class="card-text text-muted small flex-grow-1">مسكن سريع وفعّال للصداع وآلام الجسم المختلفة.</p>
+                    <div class="d-flex justify-content-between align-items-center mt-3">
+                        <span class="fw-bold" style="color: var(--secondary-dark);">45.00 ج.م</span>
+                        <button class="btn btn-sm custom-btn rounded-pill px-3"><i class="bi bi-cart-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6 product-item" data-category="medicines">
+            <div class="card h-100 product-card">
+                <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=400&q=80" class="product-img" alt="بروفين">
+                <div class="card-body d-flex flex-column">
+                    <span class="badge custom-badge mb-2 align-self-start">أدوية</span>
+                    <h5 class="card-title fw-bold fs-6">بروفين 400 مجم (Brufen)</h5>
+                    <p class="card-text text-muted small flex-grow-1">مضاد للالتهابات ومسكن قوي لآلام الأسنان والمفاصل.</p>
+                    <div class="d-flex justify-content-between align-items-center mt-3">
+                        <span class="fw-bold" style="color: var(--secondary-dark);">38.00 ج.م</span>
+                        <button class="btn btn-sm custom-btn rounded-pill px-3"><i class="bi bi-cart-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6 product-item" data-category="medicines">
+            <div class="card h-100 product-card">
+                <img src="https://images.unsplash.com/photo-1471864190281-a93a3070b6de?auto=format&fit=crop&w=400&q=80" class="product-img" alt="أسبرين">
+                <div class="card-body d-flex flex-column">
+                    <span class="badge custom-badge mb-2 align-self-start">أدوية</span>
+                    <h5 class="card-title fw-bold fs-6">أسبرين حماية (Aspirin)</h5>
+                    <p class="card-text text-muted small flex-grow-1">أقراص تستخدم لحماية القلب وتحسين سيولة الدم.</p>
+                    <div class="d-flex justify-content-between align-items-center mt-3">
+                        <span class="fw-bold" style="color: var(--secondary-dark);">32.00 ج.م</span>
+                        <button class="btn btn-sm custom-btn rounded-pill px-3"><i class="bi bi-cart-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6 product-item" data-category="medicines">
+            <div class="card h-100 product-card">
+                <img src="https://images.unsplash.com/photo-1550572017-edd951b55104?auto=format&fit=crop&w=400&q=80" class="product-img" alt="أوجمنتين">
+                <div class="card-body d-flex flex-column">
+                    <span class="badge custom-badge mb-2 align-self-start">أدوية</span>
+                    <h5 class="card-title fw-bold fs-6">أوجمنتين 1 جرام (Augmentin)</h5>
+                    <p class="card-text text-muted small flex-grow-1">مضاد حيوي واسع المجال لعلاج الالتهابات البكتيرية.</p>
+                    <div class="d-flex justify-content-between align-items-center mt-3">
+                        <span class="fw-bold" style="color: var(--secondary-dark);">95.00 ج.م</span>
+                        <button class="btn btn-sm custom-btn rounded-pill px-3"><i class="bi bi-cart-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= [2] منتجات قسم العناية بالبشرة (skincare) ================= -->
+        <div class="col-md-3 col-sm-6 product-item" data-category="skincare">
+            <div class="card h-100 product-card">
+                <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=400&q=80" class="product-img" alt="غسول لاروش">
+                <div class="card-body d-flex flex-column">
+                    <span class="badge custom-badge mb-2 align-self-start">بشرة</span>
+                    <h5 class="card-title fw-bold fs-6">غسول لاروش بوزيه إيفاكلار</h5>
+                    <p class="card-text text-muted small flex-grow-1">جل رغوي لتنظيف البشرة الدهنية والمختلطة وإزالة الشوائب.</p>
+                    <div class="d-flex justify-content-between align-items-center mt-3">
+                        <span class="fw-bold" style="color: var(--secondary-dark);">480.00 ج.م</span>
+                        <button class="btn btn-sm custom-btn rounded-pill px-3"><i class="bi bi-cart-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6 product-item" data-category="skincare">
+            <div class="card h-100 product-card">
+                <img src="https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?auto=format&fit=crop&w=400&q=80" class="product-img" alt="غسول سيرافي">
+                <div class="card-body d-flex flex-column">
+                    <span class="badge custom-badge mb-2 align-self-start">بشرة</span>
+                    <h5 class="card-title fw-bold fs-6">غسول رغوي سيرافي (CeraVe)</h5>
+                    <p class="card-text text-muted small flex-grow-1">ينظف البشرة بلطف دون تجفيفها بفضل السيراميد.</p>
+                    <div class="d-flex justify-content-between align-items-center mt-3">
+                        <span class="fw-bold" style="color: var(--secondary-dark);">420.00 ج.م</span>
+                        <button class="btn btn-sm custom-btn rounded-pill px-3"><i class="bi bi-cart-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6 product-item" data-category="skincare">
+            <div class="card h-100 product-card">
+                <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=400&q=80" class="product-img" alt="سيروم هيالورونيك">
+                <div class="card-body d-flex flex-column">
+                    <span class="badge custom-badge mb-2 align-self-start">بشرة</span>
+                    <h5 class="card-title fw-bold fs-6">سيروم الهيالورونيك أسيد</h5>
+                    <p class="card-text text-muted small flex-grow-1">ترطيب مكثف ومحاربة جفاف وعلامات إجهاد البشرة.</p>
+                    <div class="d-flex justify-content-between align-items-center mt-3">
+                        <span class="fw-bold" style="color: var(--secondary-dark);">350.00 ج.م</span>
+                        <button class="btn btn-sm custom-btn rounded-pill px-3"><i class="bi bi-cart-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6 product-item" data-category="skincare">
+            <div class="card h-100 product-card">
+                <img src="https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?auto=format&fit=crop&w=400&q=80" class="product-img" alt="مرطب بشرة">
+                <div class="card-body d-flex flex-column">
+                    <span class="badge custom-badge mb-2 align-self-start">بشرة</span>
+                    <h5 class="card-title fw-bold fs-6">كريم ترطيب سيرافي المغذي</h5>
+                    <p class="card-text text-muted small flex-grow-1">يمنح البشرة الحساسة والجافة ترطيباً عميقاً يدوم 24 ساعة.</p>
+                    <div class="d-flex justify-content-between align-items-center mt-3">
+                        <span class="fw-bold" style="color: var(--secondary-dark);">460.00 ج.م</span>
+                        <button class="btn btn-sm custom-btn rounded-pill px-3"><i class="bi bi-cart-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= [3] منتجات قسم الفيتامينات (vitamins) ================= -->
+        <div class="col-md-3 col-sm-6 product-item" data-category="vitamins">
+            <div class="card h-100 product-card">
+                <img src="https://picsum.photos/id/1080/400/300" class="product-img" alt="فيتامين سي">
+                <div class="card-body d-flex flex-column">
+                    <span class="badge custom-badge mb-2 align-self-start">فيتامينات</span>
+                    <h5 class="card-title fw-bold fs-6">فيتامين سي فوار 1000 مجم</h5>
+                    <p class="card-text text-muted small flex-grow-1">لتعزيز المناعة اليومية ومقاومة نزلات البرد والإنفلونزا.</p>
+                    <div class="d-flex justify-content-between align-items-center mt-3">
+                        <span class="fw-bold" style="color: var(--secondary-dark);">90.00 ج.م</span>
+                        <button class="btn btn-sm custom-btn rounded-pill px-3"><i class="bi bi-cart-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6 product-item" data-category="vitamins">
+            <div class="card h-100 product-card">
+                <img src="https://images.pexels.com/photos/3652104/pexels-photo-3652104.jpeg?auto=compress&cs=tinysrgb&w=400" class="product-img" alt="أوميجا 3">
+                <div class="card-body d-flex flex-column">
+                    <span class="badge custom-badge mb-2 align-self-start">فيتامينات</span>
+                    <h5 class="card-title fw-bold fs-6">أوميجا 3 زيت السمك (Omega 3)</h5>
+                    <p class="card-text text-muted small flex-grow-1">مكمل غذائي لدعم الذاكرة والتركيز وصحة الشرايين والقلب.</p>
+                    <div class="d-flex justify-content-between align-items-center mt-3">
+                        <span class="fw-bold" style="color: var(--secondary-dark);">140.00 ج.م</span>
+                        <button class="btn btn-sm custom-btn rounded-pill px-3"><i class="bi bi-cart-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6 product-item" data-category="vitamins">
+            <div class="card h-100 product-card">
+                <img src="https://images.pexels.com/photos/4058359/pexels-photo-4058359.jpeg?auto=compress&cs=tinysrgb&w=400" class="product-img" alt="فيتامين د3">
+                <div class="card-body d-flex flex-column">
+                    <span class="badge custom-badge mb-2 align-self-start">فيتامينات</span>
+                    <h5 class="card-title fw-bold fs-6">فيتامين د3 (Vitamin D3)</h5>
+                    <p class="card-text text-muted small flex-grow-1">مكمل حيوي لتقوية العظام وتعزيز امتصاص الكالسيوم في الجسم.</p>
+                    <div class="d-flex justify-content-between align-items-center mt-3">
+                        <span class="fw-bold" style="color: var(--secondary-dark);">210.00 ج.م</span>
+                        <button class="btn btn-sm custom-btn rounded-pill px-3"><i class="bi bi-cart-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6 product-item" data-category="vitamins">
+            <div class="card h-100 product-card">
+                <img src="https://images.pexels.com/photos/5934926/pexels-photo-5934926.jpeg?auto=compress&cs=tinysrgb&w=400" class="product-img" alt="زنك">
+                <div class="card-body d-flex flex-column">
+                    <span class="badge custom-badge mb-2 align-self-start">فيتامينات</span>
+                    <h5 class="card-title fw-bold fs-6">كبسولات زنك بلس (Zinc)</h5>
+                    <p class="card-text text-muted small flex-grow-1">عنصر أساسي لدعم نمو الشعر ونضارة البشرة وتقوية المناعة.</p>
+                    <div class="d-flex justify-content-between align-items-center mt-3">
+                        <span class="fw-bold" style="color: var(--secondary-dark);">85.00 ج.م</span>
+                        <button class="btn btn-sm custom-btn rounded-pill px-3"><i class="bi bi-cart-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const filterCards = document.querySelectorAll('.cat-badge-card');
+        const productItems = document.querySelectorAll('.product-item');
+
+        filterCards.forEach(card => {
+            card.addEventListener('click', function() {
+                // 1. تبديل الـ active بين الأزرار
+                filterCards.forEach(c => c.classList.remove('active'));
+                this.classList.add('active');
+
+                // 2. قراءة القسم المطلوب
+                const filterValue = this.getAttribute('data-filter');
+
+                // 3. فلترة وعرض المنتجات الخاصة بالقسم المختار
+                productItems.forEach(item => {
+                    const itemCategory = item.getAttribute('data-category');
+
+                    if (filterValue === 'all' || filterValue === itemCategory) {
+                        item.style.display = 'block';
+                        item.classList.add('fade-in');
+                    } else {
+                        item.style.display = 'none';
+                        item.classList.remove('fade-in');
+                    }
+                });
+            });
+        });
+    });
+</script>
+
+<nav class="bottom-nav">
+    <a href="index.html">Home</a>
+    <a href="offer.html">Offers</a>
+    <a href="categories.html" class="active">Categories</a>
+    <a href="more.html">More</a>
+</nav>
+
+</body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en" dir="LEF"> <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صيدليتنا - المزيد</title>
+<link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif; 
+
+            background-color: #ffffff;
+            color: #334155;
+            min-height: 100vh;
+        }
+
+        .title-section h1 {
+            color: #0f172a;
+            letter-spacing: -0.5px;
+        }
+
+
+        .card {
+            border: none !important;
+            background: #ffffff;
+            border: 1px solid rgba(234, 88, 12, 0.1) !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03) !important;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+        }
+
+
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(234, 88, 12, 0.08) !important;
+            border-color: rgba(234, 88, 12, 0.3) !important;
+        }
+
+
+        .icon-wrapper {
+            width: 70px;
+            height: 70px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px;
+            margin-bottom: 1.2rem;
+            transition: all 0.3s ease;
+            background-color: #ffedd5 !important; 
+
+            color: #ea580c !important; 
+
+        }
+
+
+        .btn-orange-custom {
+            color: #ea580c !important;
+            border: 2px solid #ea580c !important;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .btn-orange-custom:hover {
+            background-color: #ea580c !important;
+            color: white !important;
+            box-shadow: 0 8px 20px rgba(234, 88, 12, 0.2);
+        }
+
+
+        .faq-card {
+            border-right: 4px solid #ea580c !important; 
+
+        }
+        .accordion-item {
+            border: none !important;
+            background: #fff7ed !important; 
+
+            border-radius: 12px !important;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+        .accordion-button {
+            background: #fff7ed !important;
+            color: #1e293b !important;
+            font-weight: 600;
+            border: none !important;
+            padding: 1.2rem;
+        }
+        .accordion-button:not(.collapsed) {
+            background: #ffedd5 !important;
+            color: #ea580c !important;
+            box-shadow: none !important;
+        }
+        .accordion-button:focus {
+            box-shadow: none !important;
+        }
+        .accordion-body {
+            background: #ffffff;
+            color: #64748b;
+            line-height: 1.7;
+        }
+
+
+        .settings-card {
+            border-right: 4px solid #64748b !important;
+        }
+        .btn-danger-custom {
+            background: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%) !important;
+            border: none !important;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(244, 63, 94, 0.2) !important;
+        }
+        .btn-danger-custom:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(244, 63, 94, 0.35) !important;
+        }
+
+
+        .text-orange-icon {
+            color: #ea580c !important;
+        }
+    </style>
+</head>
+<body>
+<div class="container py-5">
+
+    <div class="text-center mb-5 title-section">
+        <h1 class="fw-bold">المزيد من الخيارات</h1>
+        <p class="text-muted fs-5">كل ما تحتاجه من معلومات وتواصل في مكان واحد</p>
+    </div>
+
+    <div class="row g-4">
+        <!-- كارت تواصل معنا -->
+        <div class="col-md-4">
+            <div class="card h-100 text-center p-4 rounded-4 card-hover">
+                <div class="icon-wrapper mx-auto">
+                    <i class="bi bi-headset fs-2"></i>
+                </div>
+                <h4 class="fw-bold mb-3">تواصل معنا</h4>
+                <p class="text-muted small px-2">فريق الدعم الفني والصيادلة جاهزون لخدمتك على مدار الساعة لتقديم الاستشارات.</p>
+                <a href="#" class="btn btn-orange-custom mt-auto rounded-pill px-4 py-2">اتصل بنا الآن</a>
+            </div>
+        </div>
+
+
+        <div class="col-md-4">
+            <div class="card h-100 text-center p-4 rounded-4 card-hover">
+                <div class="icon-wrapper mx-auto">
+                    <i class="bi bi-geo-alt fs-2"></i>
+                </div>
+                <h4 class="fw-bold mb-3">فروعنا</h4>
+                <p class="text-muted small px-2">ابحث عن أقرب فرع لصيدليتنا إليك، وتعرف على أوقات العمل الرسمية وأرقام الهواتف.</p>
+                <a href="#" class="btn btn-orange-custom mt-auto rounded-pill px-4 py-2">تحديد الفروع</a>
+            </div>
+        </div>
+
+
+        <div class="col-md-4">
+            <div class="card h-100 text-center p-4 rounded-4 card-hover">
+                <div class="icon-wrapper mx-auto">
+                    <i class="bi bi-shield-check fs-2"></i>
+                </div>
+                <h4 class="fw-bold mb-3">سياسة الاستبدال</h4>
+                <p class="text-muted small px-2">تعرف على شروط استبدال واسترجاع الأدوية ومستحضرات التجميل لضمان سلامتكم.</p>
+                <a href="#" class="btn btn-orange-custom mt-auto rounded-pill px-4 py-2">قراءة الشروط</a>
+            </div>
+        </div>
+
+
+        <div class="col-md-6">
+            <div class="card p-4 rounded-4 h-100 faq-card">
+                <h5 class="fw-bold mb-4 text-dark"><i class="bi bi-question-circle text-orange-icon me-2"></i> الأسئلة الشائعة</h5>
+                <div class="accordion" id="faqAccordion">
+                    <div class="accordion-item shadow-sm">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                هل يتوفر توصيل للمنازل؟
+                            </button>
+                        </h2>
+                        <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                نعم، نوفر خدمة التوصيل السريع والآمن لجميع المحافظات للأدوية ومستحضرات التجميل على مدار الساعة.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-6">
+            <div class="card p-4 rounded-4 h-100 d-flex flex-column justify-content-between settings-card">
+                <div>
+                    <h5 class="fw-bold mb-3 text-dark"><i class="bi bi-person-gear text-secondary me-2"></i> إعدادات الحساب</h5>
+                    <p class="text-muted">يمكنك تعديل بياناتك الشخصية، إدارة طلباتك السابقة، أو تسجيل الخروج بأمان من هذا الجهاز في أي وقت.</p>
+                </div>
+                <div class="mt-4">
+                    <a href="login.html" class="btn btn-danger-custom text-white w-100 py-3 rounded-3 fw-bold fs-6">
+                        <i class="bi bi-box-arrow-right me-2"></i> تسجيل الخروج (Logout)
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<nav class="bottom-nav">
+    <a href="index.html">Home</a>
+    <a href="offer.html">Offers</a>
+    <a href="categories.html">Categories</a>
+    <a href="more.html" class="active">More</a>
+</nav>
+</nav>
+</body>
+</html>
